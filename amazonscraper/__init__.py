@@ -18,13 +18,13 @@ class Products(object):
 
     def _add_product(self, product_dict):
         """ Append a product to the object product list
-        >>> p = Products([{'title':'Book title', 'rating': '4.2',\
+        >>> p = Products([{'title':'Book title', 'Price':'$40.95', 'rating': '4.2',\
 'review_nb': '15', 'url':'http://www.amazon.com/book'}])
         >>> p.products[1]
         Traceback (most recent call last):
         ...
         IndexError: list index out of range
-        >>> p._add_product({'title':'Book title 2', 'rating': '4.3',\
+        >>> p._add_product({'title':'Book title 2','Price':'$40.95', 'rating': '4.3',\
 'review_nb': '12', 'url':'http://www.amazon.com/book2'})
         >>> len(p.products)
         2
@@ -44,22 +44,23 @@ class Products(object):
 
     def csv(self, separator=","):
         """ Returns a CSV string with the product info
-        >>> p = Products([{'title':'Book title', 'rating': '4.2',\
+        >>> p = Products([{'title':'Book title', 'Price':'$40.95','rating': '4.2',\
 'review_nb': '15', 'url':'http://www.amazon.com/book'}])
         >>> p.csv()
-        'Product title,Rating,Number of customer reviews,\
-Product URL\\n"Book title",4.2,15,http://www.amazon.com/book'
+        'Product title,Price, Rating,Number of customer reviews,\
+Product URL\\n"Book title",$40.95,4.2,15,http://www.amazon.com/book'
 
         >>> print(p.csv(separator=";"))
         Product title;Rating;Number of customer reviews;Product URL
-        "Book title";4,2;15;http://www.amazon.com/book
+        "Book title";$40.95;4,2;15;http://www.amazon.com/book
 
         >>> p2 = Products()
         >>> p2.csv()
-        'Product title,Rating,Number of customer reviews,Product URL'
+        'Product title,Price,Rating,Number of customer reviews,Product URL'
         """
         csv_string = separator.join([
                                     "Product title",
+                                    "Price",
                                     "Rating",
                                     "Number of customer reviews",
                                     "Product URL"])
@@ -70,6 +71,7 @@ Product URL\\n"Book title",4.2,15,http://www.amazon.com/book'
             csv_string += ("\n"+separator.join([
                                         # Add the doublequotes " for titles
                                         '"'+product.title+'"',
+                                        product.Price,
                                         rating,
                                         product.review_nb,
                                         product.url]))
