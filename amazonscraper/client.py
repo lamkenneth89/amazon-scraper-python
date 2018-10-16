@@ -8,7 +8,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 import time
 
-_BASE_URL = "https://www.amazon.com/"
+_BASE_URL = "https://www.amazon.com.au/"
 _DEFAULT_BEAUTIFULSOUP_PARSER = "html.parser"
 _DEFAULT_USER_AGENT = 'Mozilla/5.0 (Linux; Android 7.0; \
 SM-A520F Build/NRD90M; wv) AppleWebKit/537.36 \
@@ -45,6 +45,7 @@ _CSS_SELECTORS_MOBILE_GRID = {
 _CSS_SELECTORS_DESKTOP = {
     "product": "ul > li.s-result-item > div.s-item-container",
     "title": "a.s-access-detail-page > h2",
+    "Price": "a.a-offscreen> span",  
     "rating": "i.a-icon-star > span",
     "review_nb": "div.a-column.a-span5.a-span-last > \
                 div.a-row.a-spacing-mini > \
