@@ -8,10 +8,10 @@ except ImportError:  # For pip <= 9
 # Based on http://peterdowns.com/posts/first-time-with-pypi.html
 
 __version__ = '0.0.9'  # Should match with __init.py__
-_NOM_PACKAGE = 'amazonscraper'
-_URL_GITHUB = 'https://github.com/tducret/amazon-scraper-python'
+_NOM_PACKAGE = 'amazonscraper1'
+_URL_GITHUB = 'https://github.com/lamkenneth89/amazon-scraper-python/'
 _DESCRIPTION = 'Package to search for products on Amazon and extract \
-some useful information (title, ratings, number of reviews)'
+some useful information (title, price, ratings, number of reviews)'
 _MOTS_CLES = ['api', 'amazon', 'python', 'amazonscraper', 'parsing',
               'python-wrapper', 'scraping', 'scraper', 'parser']
 _SCRIPTS = ['amazon2csv.py']
@@ -31,8 +31,8 @@ setup(
     platforms='Posix; MacOS X',
     description=_DESCRIPTION,
     long_description=_DESCRIPTION,
-    author='Thibault Ducret',
-    author_email='thibault.ducret@gmail.com',
+    author='Kenneth Lam',
+    author_email='lamkenneth89@gmail.com',
     url=_URL_GITHUB,
     download_url='%s/tarball/%s' % (_URL_GITHUB, __version__),
     keywords=_MOTS_CLES,
